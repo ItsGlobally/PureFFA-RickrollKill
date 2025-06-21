@@ -7,4 +7,4 @@ Discord: https://discord.gg/Y7hBjw2VsR \
 Example code: https://github.com/bedtwL/PureFFA-BloodEffect
 
 # IMPORTANT!!
-# I NEED THE FUCKING NOTEBLOCKAPI TO WORK!
+# I NEED THE FUCKING [NOTEBLOCKAPI](https://github.com/koca2000/NoteBlockAPI) TO WORK!
