@@ -7,6 +7,10 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 public class RickrollKillEffect implements PlayerKillEffect {
     @Override
     public void killEffect(Location location, Player player, Player killer) {
@@ -29,7 +33,13 @@ public class RickrollKillEffect implements PlayerKillEffect {
     }
 
     public static void playRickrollKillEffect(Location location, Player player, Player killer) {
-        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/rickroll.nbs";
+        Random select = new Random();
+        ArrayList<String> nbsList = new ArrayList<>(Arrays.asList(
+                "1.nbs"
+        ));
+        int index = select.nextInt(nbsList.size());
+        String nbs = nbsList.get(index);
+        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/Addons/Rickroll/" + nbs;
         PlayMusic.playSong(killer, location, path);
     }
 }
