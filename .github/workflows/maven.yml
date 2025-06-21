@@ -5,8 +5,7 @@ on:
     branches:
       - master
     tags:
-      - 'v*' # Runs on version tags like v1.0.0
-
+      - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest
