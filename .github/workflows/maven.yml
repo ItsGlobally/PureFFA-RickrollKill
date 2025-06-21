@@ -17,18 +17,30 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17' # Change as needed
+          java-version: '17'
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
+
+      - name: Get latest release number
+        id: get_release
+        run: |
+          latest=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest)
+          name=$(echo "$latest" | jq -r '.name')
+          echo "Latest release name: $name"
+          if [[ "$name" =~ Build\ ([0-9]+) ]]; then
+            count=$((BASH_REMATCH[1] + 1))
+          else
+            count=1
+          fi
+          echo "release_count=$count" >> $GITHUB_OUTPUT
 
       - name: Create or Update Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: Latest Build
+          name: Build ${{ steps.get_release.outputs.release_count }}
           files: target/*.jar
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          

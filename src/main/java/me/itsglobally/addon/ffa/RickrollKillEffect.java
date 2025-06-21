@@ -35,7 +35,9 @@ public class RickrollKillEffect implements PlayerKillEffect {
     public static void playRickrollKillEffect(Location location, Player player, Player killer) {
         Random select = new Random();
         ArrayList<String> nbsList = new ArrayList<>(Arrays.asList(
-                "1.nbs"
+                "1.nbs",
+                "2.nbs",
+                "3.nbs"
         ));
         int index = select.nextInt(nbsList.size());
         String nbs = nbsList.get(index);
