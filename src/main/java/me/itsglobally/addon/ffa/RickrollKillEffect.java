@@ -41,7 +41,7 @@ public class RickrollKillEffect implements PlayerKillEffect {
         ));
         int index = select.nextInt(nbsList.size());
         String nbs = nbsList.get(index);
-        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/Addons/Rickroll/" + nbs;
+        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/Addons/RickrollkillEffect/" + nbs;
         PlayMusic.playSong(killer, location, path);
     }
 }
