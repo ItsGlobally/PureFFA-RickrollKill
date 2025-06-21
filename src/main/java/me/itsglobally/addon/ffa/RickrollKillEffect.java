@@ -29,7 +29,7 @@ public class RickrollKillEffect implements PlayerKillEffect {
     }
 
     public static void playRickrollKillEffect(Location location, Player player, Player killer) {
-        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "rickroll.nbs";
+        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/rickroll.nbs";
         PlayMusic.playSong(killer, location, path);
     }
 }
