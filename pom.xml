@@ -55,6 +55,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>bedtwl-repo</id>
+            <url>https://mvn.bedtwl.com/maven-repo</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -64,11 +68,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.bedtwl</groupId>
+            <groupId>me.bedtwL</groupId>
             <artifactId>PureAPI</artifactId>
             <version>1.0-Beta</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/PureAPI-1.0-Beta.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.koca2000</groupId>
