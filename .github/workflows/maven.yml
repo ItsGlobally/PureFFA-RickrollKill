@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - master
-
+    tags:
+      - 'v*'
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,17 +18,16 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17' # Change as needed
+          java-version: '17' # Change this to match your project's Java version
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      - name: Create or Update Release
+      - name: Upload JAR to Release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: Latest Build
-          files: target/*.jar
-          prerelease: true
+          files: |
+            target/*.jar  # Adjust if your JAR filename is different
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
