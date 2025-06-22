@@ -19,11 +19,6 @@ public class PlayMusic {
         for (Player p:location.getWorld().getPlayers())
             psp.addPlayer(p);
         psp.setPlaying(true);
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                psp.setPlaying(false);
-            }
-        }.runTaskLater(PureAPI.getPlugin(),120L);
+
     }
 }
