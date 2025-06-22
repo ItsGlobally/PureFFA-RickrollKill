@@ -70,7 +70,7 @@
         <dependency>
             <groupId>me.bedtwL</groupId>
             <artifactId>PureAPI</artifactId>
-            <version>1.0-Beta</version>
+            <version>1.0-RELEASE</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

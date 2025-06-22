@@ -1,6 +1,7 @@
 package me.itsglobally.addon.ffa;
 
 import me.bedtwL.ffa.api.PlayerKillEffect;
+import me.bedtwL.ffa.api.effect.PureKillEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class RickrollKillEffect implements PlayerKillEffect {
+public class RickrollKillEffect extends PureKillEffect {
     @Override
     public void killEffect(Location location, Player player, Player killer) {
         playRickrollKillEffect(location, player, killer);
