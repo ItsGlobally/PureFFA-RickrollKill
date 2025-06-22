@@ -5,7 +5,7 @@ import me.bedtwL.ffa.api.EffectAddon;
 public class RickrollKillEffectMain implements EffectAddon {
     @Override
     public String getName() {
-        return "Rickrollffect";
+        return "RickrollKillEffect";
     }
 
     @Override
