@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileUtils {
+    @Deprecated
     public static List<String> getAvailableNbsFiles() {
         File[] files = new File(PureAPI.getPlugin().getDataFolder()+"/Addons/RickrollkillEffect").listFiles((dir, name) -> name.endsWith(".nbs"));
         if (files == null) return Collections.emptyList();
