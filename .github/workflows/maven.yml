@@ -36,6 +36,12 @@ jobs:
           echo "release_count=$count" >> $GITHUB_OUTPUT
           echo "tag_name=build-${count}" >> $GITHUB_OUTPUT
 
+      - name: Find built JAR file
+        id: jar
+        run: |
+          jar_file=$(find target -type f -name "*.jar" | head -n 1)
+          echo "jar_path=$jar_file" >> $GITHUB_OUTPUT
+
       - name: Create Release
         id: create_release
         uses: comnoco/create-release-action@v2
@@ -44,7 +50,16 @@ jobs:
         with:
           tag_name: ${{ steps.get_release.outputs.tag_name }}
           release_name: Build ${{ steps.get_release.outputs.release_count }}
-          body: |
-            Automatic Build
+          body: Automatic Build
           draft: false
           prerelease: false
+
+      - name: Upload JAR to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.jar.outputs.jar_path }}
+          asset_name: build-${{ steps.get_release.outputs.release_count }}.jar
+          asset_content_type: application/java-archive
