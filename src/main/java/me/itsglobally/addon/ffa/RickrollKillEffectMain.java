@@ -2,7 +2,9 @@ package me.itsglobally.addon.ffa;
 
 import me.bedtwL.ffa.api.EffectAddon;
 
-public class RickrollKillEffectMain implements EffectAddon {
+import java.util.UUID;
+
+public abstract class RickrollKillEffectMain implements EffectAddon {
     @Override
     public String getName() {
         return "RickrollKillEffect";
@@ -12,10 +14,13 @@ public class RickrollKillEffectMain implements EffectAddon {
     public String getAuthor() {
         return "ItsGlobally";
     }
-
+    @Override
+    public UUID authorUUID() {
+        return UUID.fromString("748c3863-c04d-493b-bce3-05a1765a5b56");
+    }
     @Override
     public void onEnable() {
-        new RickrollKillEffect().registerKillEffect();
+        new RickrollKillEffect().registerKillEffect(this);
     }
 
     @Override
