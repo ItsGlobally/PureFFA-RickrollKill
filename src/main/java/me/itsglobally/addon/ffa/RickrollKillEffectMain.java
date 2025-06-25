@@ -4,7 +4,7 @@ import me.bedtwL.ffa.api.EffectAddon;
 
 import java.util.UUID;
 
-public abstract class RickrollKillEffectMain implements EffectAddon {
+public class RickrollKillEffectMain implements EffectAddon {
     @Override
     public String getName() {
         return "RickrollKillEffect";
