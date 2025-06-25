@@ -42,7 +42,7 @@ public class RickrollKillEffect extends PureKillEffect {
         ));
         int index = select.nextInt(nbsList.size());
         String nbs = nbsList.get(index);
-        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/Addons/RickrollkillEffect/" + nbs;
+        String path = Bukkit.getPluginManager().getPlugin("PureFFA").getDataFolder().getAbsolutePath() + "/Addons/3rd-party-addons/Rickrollkill/" + nbs;
         PlayMusic.playSong(killer, location, path);
     }
 }
