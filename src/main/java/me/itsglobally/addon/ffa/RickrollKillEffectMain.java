@@ -9,7 +9,8 @@ public abstract class RickrollKillEffectMain implements EffectAddon {
     public String getName() {
         return "RickrollKillEffect";
     }
-
+    @Override
+    public Integer getAPIVer() { return 1; };
     @Override
     public String getAuthor() {
         return "ItsGlobally";
